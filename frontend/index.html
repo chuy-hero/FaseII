@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detector de fraude financiero</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <span class="eyebrow">PROYECTO DE INTELIGENCIA ARTIFICIAL</span>
+      <h1>Detector de fraude financiero</h1>
+      <p>Evalúa una transacción con un modelo Random Forest servido mediante una API REST.</p>
+      <div class="status"><span class="dot"></span><span id="apiStatus">Comprobando conexión con la API…</span></div>
+    </header>
+
+    <section class="panel">
+      <h2>Datos de la transacción</h2>
+      <form id="fraudForm">
+        <label for="monto">Monto de la transacción</label>
+        <div class="input-wrap"><span>$</span><input id="monto" type="number" min="1" max="1000000" step="0.01" value="650" required></div>
+
+        <label for="hora">Hora del día (0 a 24)</label>
+        <input id="hora" type="number" min="0" max="24" step="0.1" value="2" required>
+
+        <label for="pais">¿La transacción proviene de un país riesgoso?</label>
+        <select id="pais"><option value="0">No</option><option value="1">Sí</option></select>
+
+        <button id="submitBtn" type="submit">Analizar transacción</button>
+      </form>
+      <p class="hint">La API debe estar activa en <code>http://localhost:8000</code>. Consulta <code>/docs</code> para ver los endpoints.</p>
+    </section>
+
+    <section id="result" class="panel result hidden" aria-live="polite">
+      <h2>Resultado del análisis</h2>
+      <div id="resultLabel" class="result-label">—</div>
+      <div class="meter"><div id="meterFill"></div></div>
+      <p>Probabilidad estimada de fraude: <strong id="probability">—</strong></p>
+      <p>Nivel de riesgo: <strong id="risk">—</strong></p>
+      <p id="explanation" class="hint"></p>
+    </section>
+
+    <footer>Proyecto académico · Modelo entrenado con datos sintéticos · No usar para decisiones financieras reales.</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
