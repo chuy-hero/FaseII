@@ -162,4 +162,4 @@ Incluye capturas propias de:
 5. pruebas automatizadas;
 6. servicio en la nube, si realizas el despliegue.
 
-No inventes capturas, métricas, resultados ni URL de despliegue.
+
